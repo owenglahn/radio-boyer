@@ -1,4 +1,4 @@
-module audio-stream-go
+module backend
 
 go 1.24.2
 
