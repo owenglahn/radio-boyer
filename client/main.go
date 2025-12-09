@@ -20,7 +20,7 @@ func main() {
 	buffer := make([]float32, sampleRate*seconds)
 
 	stream, err := portaudio.OpenDefaultStream(0, 1, sampleRate, len(buffer), func(out []float32) {
-		resp, err := http.Get("http://localhost:8081/audio")
+		resp, err := http.Get("http://localhost:8080/audio")
 		chk(err)
 		body, _ := io.ReadAll(resp.Body)
 		responseReader := bytes.NewReader(body)
