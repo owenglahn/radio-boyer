@@ -49,8 +49,6 @@ func stream(connectionPool *ConnectionPool, content []byte) {
 	buffer := make([]byte, len(content))
 	for {
 		tempfile := bytes.NewReader(content)
-		// clear() is a builtin function introduced in go 1.21.
-		// Reinitialize the buffer if on a lower version.
 		buffer = make([]byte, len(content))
 		ticker := time.NewTicker(time.Millisecond * 250)
 		for range ticker.C {
